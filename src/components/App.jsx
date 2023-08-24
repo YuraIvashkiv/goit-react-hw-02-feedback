@@ -12,10 +12,7 @@ export class App extends Component {
     bad: 0,
   };
 
- 
-
-
-  handleState = type => {
+   handleState = type => {
     this.setState(prevState => ({
       [type]: prevState[type] + 1,
     }));
