@@ -3,20 +3,16 @@ import { FeedbackOptions } from './feedbackOptions/FeedbackOptions';
 import { Statistics } from './statistics/Statistics';
 import { Section } from './section/Section';
 
-
-
 export class App extends Component {
   state = {
     good: 0,
     neutral: 0,
     bad: 0,
   };
-
-   handleState = type => {
+  handleState = type => {
     this.setState(prevState => ({
       [type]: prevState[type] + 1,
     }));
-
   };
 
   countTotalFeedback = () => {
@@ -57,4 +53,3 @@ export class App extends Component {
     );
   }
 }
-    
