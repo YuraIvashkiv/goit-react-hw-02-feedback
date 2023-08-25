@@ -11,20 +11,23 @@ export class App extends Component {
     bad: 0,
   };
 
-  hasFeedback = false;
+  // hasFeedback = false;
 
   handleState = type => {
-    console.log('Button clicked:', type);
-    this.setState(prevState => ({
-      [type]: prevState[type] + 1,
-    }),
-
-       () => {
-        const { good, neutral, bad } = this.state;
-
-      this.hasFeedback = good + neutral + bad > 0;
+    // console.log('Button clicked:', type);
+    this.setState(prevState => {
+      return {
+        [type]: prevState[type] + 1
+      };
     }
-    )
+    );
+  
+    //    () => {
+    //     const { good, neutral, bad } = this.state;
+
+    //   this.hasFeedback = good + neutral + bad > 0;
+    // }
+  
   };
 
   
@@ -44,7 +47,7 @@ export class App extends Component {
 
     render() {
       const { good, neutral, bad } = this.state;
-      console.log("State:", good, neutral, bad);
+      // console.log("State:", good, neutral, bad);
       const totalFeedback = this.countTotalFeedback();
       const positivePercentage = this.countPositiveFeedbackPercentage();
 
@@ -59,7 +62,7 @@ export class App extends Component {
         </Section>
 
         <Section title="Statistics">
-          {this.hasFeedback ? (
+          {this.countTotalFeedback() !== 0 ? (
             <Statistics
               good={good}
               neutral={neutral}
